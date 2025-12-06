@@ -4,14 +4,18 @@ import authorize from "../middlewares/authorize.js";
 
 const postsRouter = Router();
 
-postsRouter.get("/posts", controller.getAllPosts)
-postsRouter.get("/post", controller.getPostById)
-postsRouter.get('/posts/search', controller.searchPosts)
+postsRouter.get("/", controller.getAllPosts)
+postsRouter.get("/:id", controller.getPostById)
+postsRouter.get('/search', controller.searchPosts)
 postsRouter.get('/posts/pagination', controller.pagination)
-postsRouter.get("/posts-by-userId", controller.getPostsByUserId)
-postsRouter.post("/posts/add-post", authorize, controller.createPost)
-postsRouter.put("/posts/update-post", authorize, controller.updatePost)
-postsRouter.delete('/posts/delete-post', authorize, controller.deletePost)
+postsRouter.get("/user/:userid", controller.getPostsByUserId)
+
+
+postsRouter.post("/", authorize, controller.createPost)
+
+postsRouter.put("/:id", authorize, controller.updatePost)
+
+postsRouter.delete('/:id', authorize, controller.deletePost)
 
 
 

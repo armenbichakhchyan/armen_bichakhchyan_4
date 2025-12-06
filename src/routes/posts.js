@@ -19,4 +19,4 @@ postsRouter.delete('/:id', authorize, controller.deletePost)
 
 
 
-export default postsRouter;
+export default postsRouter;ա

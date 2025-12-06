@@ -5,7 +5,9 @@ const usersRouter = Router();
 
 usersRouter.post('/register', controller.register);
 usersRouter.post('/login', controller.login);
+
 usersRouter.get('/profile', authorize, controller.profile);
-usersRouter.get('/user', controller.findUserById)
+
+usersRouter.get('/:id', authorize, controller.findUserById);
 
 export default usersRouter;
